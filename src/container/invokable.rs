@@ -32,8 +32,3 @@ pub trait Invokable: super::Injectable {
     }
 }
 
-impl<T> super::Injectable for T where T: Invokable
-{
-    type Deps = ();
-    fn inject(_: <T as super::Injectable>::Deps) -> Self { panic!("invokable inject not implemented") }
-}

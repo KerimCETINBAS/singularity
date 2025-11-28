@@ -3,6 +3,16 @@ name = "singularity"
 version = "0.1.0"
 edition = "2024"
 
+[features]
+derive = ["singularity_proc_macros"]
+
+
+[dependencies]
+singularity_proc_macros = {path = "singularity_proc_macros", optional = true}
 
 [dev-dependencies]
 rstest = "=0.26.1"
+
+
+[workspace]
+members = ["singularity_proc_macros"]

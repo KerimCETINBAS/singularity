@@ -8,7 +8,7 @@ mod scope;
 
 pub use injectable::Injectable;
 
-pub use invokable::Invokable;
+// pub use invokable::Invokable;
 
 use resolve_deps_from::ResolveDepsFrom;
 pub mod macros {
@@ -54,24 +54,24 @@ impl Container {
         T::inject(T::Deps::resolve_deps(self))
     }
 
-    pub fn invoke<T>(&self)
-    where
-        T: Invokable,
-        <T as Invokable>::Deps: ResolveDepsFrom<Self>,
-    {
-        let deps = <T as Invokable>::Deps::resolve_deps(self);
-        T::invoke(deps);
-    }
-
-
-    pub fn invoke_with<T>(&self, callback: impl FnOnce(T::Output))
-    where
-        T: Invokable,
-        <T as Invokable>::Deps: ResolveDepsFrom<Self>,
-    {
-        let deps = <T as Invokable>::Deps::resolve_deps(self);
-        T::invoke_with(deps, callback);
-    }
+    // pub fn invoke<T>(&self)
+    // where
+    //     T: Invokable,
+    //     <T as Invokable>::Deps: ResolveDepsFrom<Self>,
+    // {
+    //     let deps = <T as Invokable>::Deps::resolve_deps(self);
+    //     T::invoke(deps);
+    // }
+    // 
+    // 
+    // pub fn invoke_with<T>(&self, callback: impl FnOnce(T::Output))
+    // where
+    //     T: Invokable,
+    //     <T as Invokable>::Deps: ResolveDepsFrom<Self>,
+    // {
+    //     let deps = <T as Invokable>::Deps::resolve_deps(self);
+    //     T::invoke_with(deps, callback);
+    // }
 }
 
 

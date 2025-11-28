@@ -3,6 +3,9 @@
 /// Must be implemented manually per service.
 ///
 /// Safety: Any recursive dependency will result in **compile-time failure**.
+
+#[cfg(feature = "derive")]
+pub use singularity_proc_macros::Injectable;
 pub trait Injectable: Sized {
     type Deps;
     const SCOPE: super::scope::Scope = super::scope::Scope::Scoped;
